@@ -1,0 +1,82 @@
+		/*var Refer = '<?php echo form_open(base_url().\'welcome/load_review\', '
+		  +'array(\'onsubmit\' => \'guarda_dato('+snapshot.val().Titulo+');\')); ?>'
+		  +'<button type="submit" class="btn">'+snapshot.val().Titulo+'</button><br>'
+		  +'<?php echo form_close(); ?>';*/
+		/*var Refer = '<?php $datos = array( "'+snapshot.val().Autor+'","'
+          +snapshot.val().Contenido+'", "'+snapshot.val().Enlace+'","'
+          +snapshot.val().Fecha+'", "'+snapshot.val().ImagenUrl+'",'
+		  +snapshot.val().Me_gusta+', "'+snapshot.val().Tipo+'","'
+		  +snapshot.val().Titulo+'"); '
+		  +' echo form_open(base_url().\'welcome/load_review\', $datos ?>'
+		  +'<button type="submit" class="btn">'+snapshot.val().Titulo+'</button><br>'
+		  +'<?php echo form_close(); ?>';*/
+		  //alert(Refer);
+		document.getElementById("Autor1").value = snapshot.val().Autor;
+		document.getElementById("Enlace1").value = snapshot.val().Enlace;
+		document.getElementById("Contenido1").value = snapshot.val().Contenido;
+		document.getElementById("ImagenUrl1").value = snapshot.val().ImagenUrl;
+		document.getElementById("Fecha1").value = snapshot.val().Fecha;
+		document.getElementById("Tipo1").value = snapshot.val().Tipo;
+		document.getElementById("Me_gusta1").value = snapshot.val().Me_gusta;
+		document.getElementById("Titulo1").value = snapshot.val().Titulo;
+		document.getElementById("Titulo1").innerText = snapshot.val().Titulo;
+		//Links_r.innerHTML += Refer;
+		
+                    <?php echo form_open(base_url().'welcome/load_review'); ?>
+					<input type="hidden" id="Autor1" name="Autor1" value=''>
+					<input type="hidden" id="Contenido1" name="Contenido1" value=''>
+					<input type="hidden" id="Enlace1" name="Enlace1" value=''>
+					<input type="hidden" id="Fecha1" name="Fecha1" value=''>
+					<input type="hidden" id="ImagenUrl1" name="ImagenUrl1" value=''>
+					<input type="hidden" id="Me_gusta1" name="Me_gusta1" value=''>
+					<input type="hidden" id="Tipo1" name="Tipo1" value=''>
+					<input type="hidden" id="Titulo1" name="Titulo1" value=''>
+					<button type="submit" id="btn_1" name="btn_1" class="btn"></button><br>
+					<?php echo form_close(); ?>
+					
+        $data['Autor'] = xss_clean($this->input->post('Autor1'));
+		$data['Contenido'] = xss_clean($this->input->post('Contenido1'));
+		$data['Enlace'] = xss_clean($this->input->post('Enlace1'));
+		$data['Fecha'] = xss_clean($this->input->post('Fecha1'));
+		$data['ImagenUrl'] = xss_clean($this->input->post('ImagenUrl1'));
+		$data['Me_gusta'] = xss_clean($this->input->post('Me_gusta'));
+		$data['Tipo'] = xss_clean($this->input->post('Tipo1'));
+		$data['Titulo'] = xss_clean($this->input->post('Titulo1'));
+					
+	/*var Links_r = document.getElementById("enlaces_res");
+	var cont=1;
+    refer.orderByChild("Fecha").limitToLast(3).on("child_added", function(snapshot) {
+		var Refer = '<button type="submit" function="reseña_'+cont+'" class="btn">'
+		+snapshot.val().Titulo+'</button><br>'
+		Links_r.innerHTML += Refer;
+		cont+=1;
+    });*/
+	
+	/*funcion que recibe parametros pos post*/
+	public function login(){
+		$this->load->helper('text');
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->helper('security');
+
+		$correo  = xss_clean($this->input->post('email'));
+		$clave   = xss_clean($this->input->post('password'));
+		$mensaje = xss_clean($this->input->post('msg'));
+		$edad    = xss_clean($this->input->post('edad'));
+
+		echo "Correo: ".$correo;
+	}
+	
+        <div class="comentario">
+			<div class="row">
+				<div class="col-md-1 col-sm-10">
+				<br><center><img src="<?php echo base_url();?>assets/img/User.png"
+				height="56" width="56" alt="none"><center><br>
+				</div>
+				<div class="col-md-10 col-sm-10">
+					<h4><label id="com_aut">Autor:  </label>
+					<label id="com_date">  00/00/0000</label></h4>
+					<label id="com">Texto, texto, texto.</label>
+				</div>
+			</div>
+		</div><br>
